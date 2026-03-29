@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,56620,t=>{"use strict";var r=t.i(43476);t.s(["default",0,function(){return(0,r.jsxs)("div",{style:{padding:"40px"},children:[(0,r.jsx)("h1",{children:"Nowa faktura"}),(0,r.jsx)("p",{children:"Formularz tworzenia faktury będzie tutaj."})]})}])}]);
