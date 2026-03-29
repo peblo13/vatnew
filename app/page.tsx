@@ -1,10 +1,12 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur border-b border-slate-700/50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold text-cyan-400">VAT Faktura</div>
+          <Link href="/" className="text-2xl font-bold text-cyan-400">VAT Faktura</Link>
           <div className="flex gap-3">
             <button className="px-4 py-2 text-gray-300 hover:text-cyan-400">
               Zaloguj się
@@ -21,19 +23,19 @@ export default function Home() {
         <aside className="hidden md:block w-64 bg-slate-900/50 border-r border-slate-700/50 p-6 sticky top-16 h-screen overflow-y-auto">
           <nav className="space-y-4">
             {[
-              { icon: "📊", label: "Załóż firmę" },
-              { icon: "📄", label: "Faktura" },
-              { icon: "📋", label: "PIT" },
-              { icon: "🏢", label: "ZUS" },
-              { icon: "🔍", label: "Sprawdź Kontrahenta" },
-              { icon: "🗺️", label: "Mapa Urzędów" },
-              { icon: "⚖️", label: "Bezpłatne Porady" },
-              { icon: "📝", label: "Generator Umów" },
+              { icon: "📊", label: "Załóż firmę", href: "/zaloz-firme-online" },
+              { icon: "📄", label: "Faktura", href: "#" },
+              { icon: "📋", label: "PIT", href: "/pit" },
+              { icon: "🏢", label: "ZUS", href: "/zus" },
+              { icon: "🔍", label: "Sprawdź Kontrahenta", href: "#" },
+              { icon: "🗺️", label: "Mapa Urzędów", href: "#" },
+              { icon: "⚖️", label: "Bezpłatne Porady", href: "#" },
+              { icon: "📝", label: "Generator Umów", href: "#" },
             ].map((item, idx) => (
-              <button key={idx} className="w-full text-left flex items-center gap-3 px-4 py-2 text-gray-300 hover:text-cyan-400 hover:bg-slate-800/50 rounded transition">
+              <Link key={idx} href={item.href} className="w-full text-left flex items-center gap-3 px-4 py-2 text-gray-300 hover:text-cyan-400 hover:bg-slate-800/50 rounded transition">
                 <span className="text-lg">{item.icon}</span>
                 <span className="text-sm">{item.label}</span>
-              </button>
+              </Link>
             ))}
           </nav>
         </aside>
@@ -116,7 +118,7 @@ export default function Home() {
               <p className="text-gray-300 text-center mb-8 max-w-2xl mx-auto">
                 Nie musisz już odwiedzać urzędu! VAT Faktura pomaga w rejestracji Twojej firmy online.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 {[
                   "Szybka rejestracja online",
                   "Bez wizyt w urzędach",
@@ -128,6 +130,11 @@ export default function Home() {
                     <span>{item}</span>
                   </div>
                 ))}
+              </div>
+              <div className="text-center">
+                <Link href="/zaloz-firme-online" className="inline-block px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded font-semibold transition">
+                  Przejdź do przewodnika
+                </Link>
               </div>
             </div>
           </section>
@@ -171,12 +178,17 @@ export default function Home() {
               <p className="text-gray-300 text-center mb-12">
                 Wypełnij deklarację podatkową online i wyślij bezpośrednio do urzędu - wszystko za darmo.
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
                 {["PIT-37", "PIT-36", "PIT-28", "PIT-38", "PIT-39", "PIT-16A"].map((pit, i) => (
                   <div key={i} className="p-4 bg-slate-800/30 border border-slate-700/50 rounded text-center hover:border-cyan-500/50 transition">
                     <div className="font-semibold text-cyan-400">{pit}</div>
                   </div>
                 ))}
+              </div>
+              <div className="text-center">
+                <Link href="/pit" className="inline-block px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded font-semibold transition">
+                  Przejdź do PIT
+                </Link>
               </div>
             </div>
           </section>
@@ -188,7 +200,7 @@ export default function Home() {
               <p className="text-gray-300 text-center mb-12">
                 Wypełnij formularze ZUS, oblicz zasiłki - wszystko w jednym miejscu.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 {[
                   { title: "ZUS Z-3", desc: "Zaświadczenie chorobowe" },
                   { title: "ZUS Z-15", desc: "Zasiłek opiekuńczy" },
@@ -200,6 +212,11 @@ export default function Home() {
                     <p className="text-gray-400">{tool.desc}</p>
                   </div>
                 ))}
+              </div>
+              <div className="text-center">
+                <Link href="/zus" className="inline-block px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded font-semibold transition">
+                  Przejdź do ZUS
+                </Link>
               </div>
             </div>
           </section>
